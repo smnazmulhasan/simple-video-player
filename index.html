@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<title>Simple Video Player</title>
+		<style>
+			body {
+				background-color: black;
+				color: white;
+			}
+			a:link {
+			color: rgb(252, 95, 244);
+			background-color: transparent;
+			text-decoration: none;
+			}
+
+			a:visited {
+			color: red;
+			background-color: transparent;
+			text-decoration: none;
+			}
+
+			a:hover {
+			color: rgb(0, 174, 255);
+			background-color: transparent;
+			text-decoration: underline;
+			}
+
+			a:active {
+			color: yellow;
+			background-color: transparent;
+			text-decoration: underline;
+			}
+			.dark-mode {
+  background-color: white;
+  color: black;
+}
+		</style>
+	</head>
+	<body> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+		<div style="text-align:center"> 
+			<button style="border-radius: 15px; background-color: #008CBA; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="playPause()">Play/Pause</button> 
+			<button style="border-radius: 15px; background-color: #ff00d4; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makeextreme()">Extreme</button> 
+			<button style="border-radius: 15px; background-color: #ff0000; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makehuge()">Huge</button> 
+			<button style="border-radius: 15px; background-color: #4CAF50; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makeextraBig()">Extra Big</button>
+			<button style="border-radius: 15px; background-color: #fc8836; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makeBig()">Big</button>
+			<button style="border-radius: 15px; background-color: #555555; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makeSmall()">Small</button>
+			<button style="border-radius: 15px; background-color: #F0E68C; color:black; border:2px solid blue; padding: 5px 10px;" onclick="makeNormal()">Normal</button>
+			<button style="border-radius: 15px; background-color: #F0E000; color:black; border:2px solid blue; padding: 5px 10px;" onclick="openFullscreen()">Full Screen</button>
+			<button style="border-radius: 15px; background-color: #fc8836; color:black; border:2px solid blue; padding: 5px 10px;" onclick="mute()">Mute</button>
+			<button style="border-radius: 15px; background-color: #ffffff; color:black; border:2px solid blue; padding: 5px 10px;" onclick="myFunction11()">Day Mode</button>
+			<br><br>
+			<video id="video1" width="420" onloadstart="this.volume=0.25" controls >
+				<source src="#" type="video/mp4" type="video/mp4" id="video_here">
+				Your browser does not support HTML5 video.
+			</video>
+			<br />
+			<input type="file" name="file[]" class="file_multi_video">
+		</div> 
+
+	  <script> 
+		var myVideo = document.getElementById("video1"); 
+
+		function playPause() { 
+		if (myVideo.paused) 
+			myVideo.play(); 
+		else 
+			myVideo.pause(); 
+		} 
+
+		function makeextreme() {
+			myVideo.width = 2160;
+		}
+
+		function makehuge() {
+			myVideo.width = 1080;
+		}
+
+		function makeextraBig() { 
+			myVideo.width = 720; 
+		} 
+
+		function makeBig() { 
+			myVideo.width = 560; 
+		} 
+
+		function makeSmall() { 
+			myVideo.width = 320; 
+		} 
+
+		function makeNormal() { 
+			myVideo.width = 420; 
+		} 
+
+		function mute() { 
+		if (myVideo.muted === false) {    
+			myVideo.muted = true;
+		}
+		else {
+			myVideo.muted = false;
+		}
+		}
+      </script> 
+
+		<script>
+			var elem = document.getElementById("video1");
+			function openFullscreen() {
+				if (elem.requestFullscreen) {
+					elem.requestFullscreen();
+				} else if (elem.mozRequestFullScreen) { /* Firefox */
+					elem.mozRequestFullScreen();
+				} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+					elem.webkitRequestFullscreen();
+				} else if (elem.msRequestFullscreen) { /* IE/Edge */
+					elem.msRequestFullscreen();
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			$(document).on("change", ".file_multi_video", function(evt) {
+			var $source = $('#video_here');
+			$source[0].src = URL.createObjectURL(this.files[0]);
+			$source.parent()[0].load();
+			});
+		</script>
+		<script>
+			function myFunction11() {
+			   var element = document.body;
+			   element.classList.toggle("dark-mode");
+			}
+			</script>
+		<br /><br /><br /><br /><br /><br />
+
+		<p align="center">Create by <a href="https://facebook.com/nazmulhasanriven" target="_blank">Nazmul Hasan RIVEN</a>.</p>
+
+	</body> 
+</html>

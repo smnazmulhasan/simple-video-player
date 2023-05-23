@@ -48,7 +48,7 @@
 			<button style="border-radius: 15px; background-color: #555555; color:white; border:2px solid blue; padding: 5px 10px;"  onclick="makeSmall()">Small</button>
 			<button style="border-radius: 15px; background-color: #F0E68C; color:black; border:2px solid blue; padding: 5px 10px;" onclick="makeNormal()">Normal</button>
 			<button style="border-radius: 15px; background-color: #F0E000; color:black; border:2px solid blue; padding: 5px 10px;" onclick="openFullscreen()">Full Screen</button>
-			<button style="border-radius: 15px; background-color: #fc8836; color:black; border:2px solid blue; padding: 5px 10px;" onclick="mute()">Mute</button>
+			<button id="mute" style="border-radius: 15px; background-color: #fc8836; color:black; border:2px solid blue; padding: 5px 10px;" onclick="mute()">Mute</button>
 			<button id="btn1" style="border-radius: 15px; background-color: #ffffff; color:black; border:2px solid blue; padding: 5px 10px;">Day Mode</button>
 			<br><br>
 			<video id="video1" width="420" onloadstart="this.volume=0.25" controls >
@@ -92,7 +92,7 @@
 		function makeNormal() { 
 			myVideo.width = 420; 
 		} 
-
+		const btn2= document.getElementById("mute")
 		function mute() { 
 		if (myVideo.muted === false) {    
 			myVideo.muted = true;
@@ -100,6 +100,11 @@
 		else {
 			myVideo.muted = false;
 		}
+		if (btn2.textContent === "Mute") {
+					btn2.textContent = "Unmute";
+				} else {
+					btn2.textContent = "Mute";
+				}
 		}
       </script> 
 

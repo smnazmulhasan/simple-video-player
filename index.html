@@ -31,9 +31,9 @@
 			text-decoration: underline;
 			}
 			.dark-mode {
-  background-color: white;
-  color: black;
-}
+			background-color: white;
+			color: black;
+			}
 		</style>
 	</head>
 	<body> 
@@ -49,7 +49,7 @@
 			<button style="border-radius: 15px; background-color: #F0E68C; color:black; border:2px solid blue; padding: 5px 10px;" onclick="makeNormal()">Normal</button>
 			<button style="border-radius: 15px; background-color: #F0E000; color:black; border:2px solid blue; padding: 5px 10px;" onclick="openFullscreen()">Full Screen</button>
 			<button style="border-radius: 15px; background-color: #fc8836; color:black; border:2px solid blue; padding: 5px 10px;" onclick="mute()">Mute</button>
-			<button style="border-radius: 15px; background-color: #ffffff; color:black; border:2px solid blue; padding: 5px 10px;" onclick="myFunction11()">Day Mode</button>
+			<button id="btn1" style="border-radius: 15px; background-color: #ffffff; color:black; border:2px solid blue; padding: 5px 10px;">Day Mode</button>
 			<br><br>
 			<video id="video1" width="420" onloadstart="this.volume=0.25" controls >
 				<source src="#" type="video/mp4" type="video/mp4" id="video_here">
@@ -126,11 +126,20 @@
 			});
 		</script>
 		<script>
-			function myFunction11() {
-			   var element = document.body;
-			   element.classList.toggle("dark-mode");
-			}
-			</script>
+				const btn = document.getElementById("btn1")
+
+				btn.addEventListener("click", updateBtn);
+
+				function updateBtn() {
+				document.body.classList.toggle("dark-mode");
+				if (btn.textContent === "Day Mode") {
+					btn.textContent = "Dark Mode";
+				} else {
+					btn.textContent = "Day Mode";
+				}
+				}
+
+		</script>
 		<br /><br /><br /><br /><br /><br />
 
 		<p align="center">Create by <a href="https://facebook.com/nazmulhasanriven" target="_blank">Nazmul Hasan RIVEN</a>.</p>
